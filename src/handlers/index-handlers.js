@@ -1,9 +1,11 @@
-const cityHandler = require('./city-handler.js');
+const locationHandler = require('./location-handler.js');
 const publicHandler = require('./public-handler.js');
 const homeHandler = require('./home-handler.js');
+const errorHandlers = require('./error-handlers.js');
 
 module.exports = { 
-    cityHandler,
+    locationHandler,
     publicHandler,
-    homeHandler
+    homeHandler,
+    errorHandlers
 };
