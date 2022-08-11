@@ -35,6 +35,11 @@ let weather = {
       weather.search();
     }
   });
-  
+  document.forms[0].onsubmit = (e) => {
+    e.preventDefault();
+  };
   weather.fetchWeather("gaza");
-  
+
+
+
+     

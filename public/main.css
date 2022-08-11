@@ -20,15 +20,16 @@ body {
     color: white;
     font-size: 120%;
   }
-  
+
   div.search {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
   }
   
   button {
-    margin: 0.5em;
+    margin: 18px;
     border-radius: 50%;
     border: none;
     height: 44px;
@@ -43,12 +44,12 @@ body {
   button:hover {
     background-color: #7c7c7c6b;
   }
-  
+  /* search bar style  */ 
   .search-bar {
     flex: 1;
     border: none;
     outline: none;
-    padding: 0.4em 1em;
+    padding: 0.4em 0em;
     border-radius: 24px;
     color: white;
     font-family: inherit;
@@ -82,10 +83,65 @@ body {
     position: absolute;
     top: 0;
   }
-  
-  datalist option {
-    width: 400px;
-    padding: 20px;
-    color: red;
+  /* start  */
+
+  .autocomplete {
+    position: relative;
+    display: inline-block;
   }
   
+  /* input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+  } */
+  
+  input[type=text] {
+    padding-left: 16px;
+    background-color: #161616;
+    width: 96%;
+  }
+  
+  input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  .autocomplete-items {
+    border: none !important;
+
+  }
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(26, 26, 26); 
+  }
+  
+  /*when hovering an item:*/
+  .autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+  }
+  
+  /*when navigating through the items using the arrow keys:*/
+  .autocomplete-active {
+    background-color: DodgerBlue !important; 
+    color: #ffffff; 
+  }
+  form{
+    display: flex;
+    justify-content: center;
+    
+  }
