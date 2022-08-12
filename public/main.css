@@ -1,3 +1,8 @@
+
+*{
+   box-sizing: border-box; 
+}
+
 body {
     height: 100vh;
     display: flex;
@@ -8,10 +13,22 @@ body {
     font-family: "Open Sans", sans-serif;
     background-size: cover;
     background-image: url("https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cmFpbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+    position: relative;
+  }
+  
+  body:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(128, 124, 124, 0.6);
+    z-index: -1;
   }
   
   .card {
-    background-color: #000000d0;
+    background-color: #000000ea;
     padding: 2em;
     border-radius: 30px;
     width: 100%;
@@ -29,11 +46,11 @@ body {
   }
   
   button {
-    margin: 18px;
+    margin-left: 10px;
     border-radius: 50%;
     border: none;
     height: 44px;
-    width: 44px;
+    min-width: 44px;
     outline: none;
     background-color: #7c7c7c2b;
     color: white;
@@ -100,7 +117,11 @@ body {
   input[type=text] {
     padding-left: 16px;
     background-color: #161616;
-    width: 96%;
+    width: 100%;
+    position: relative;
+    z-index: 200;
+    font-size: 18px;
+    padding: 12px 20px;
   }
   
   input[type=submit] {
@@ -111,28 +132,29 @@ body {
   
   .autocomplete-items {
     position: absolute;
-    border: 1px solid #d4d4d4;
-    border-bottom: none;
-    border-top: none;
-    z-index: 99;
+    border: none;
+    z-index: 1;
     /*position the autocomplete items to be the same width as the container:*/
-    top: 100%;
+    top: 0;
     left: 0;
     right: 0;
-  }
-  .autocomplete-items {
-    border: none !important;
+    padding-top: 44px;
+    background-color: rgb(26, 26, 26); 
+    border-radius: 24px;
+    overflow: hidden;
 
   }
+
   .autocomplete-items div {
-    padding: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
     cursor: pointer;
-    background-color: rgb(26, 26, 26); 
+    /* background-color: rgb(26, 26, 26);  */
   }
   
   /*when hovering an item:*/
   .autocomplete-items div:hover {
-    background-color: #e9e9e9; 
+    background-color: rgb(65, 63, 63); 
   }
   
   /*when navigating through the items using the arrow keys:*/
@@ -143,5 +165,5 @@ body {
   form{
     display: flex;
     justify-content: center;
-    
+    flex: 1;
   }
