@@ -7,7 +7,7 @@ const mimeTypes = {
     '.js': "text/javascript",
     '.jpg': 'image/jpg',
     '.png': 'image/png',
-    '.ico': 'image/ico'
+    '.ico': 'image/x-icon'
 };
 
 const publicHandler = (request, response) => {
