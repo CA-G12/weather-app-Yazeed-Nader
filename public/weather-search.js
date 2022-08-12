@@ -1,5 +1,6 @@
 const weatherCardDiv = document.querySelector('.weather');
 const searchInput = document.querySelector('.search-bar');
+const weathForcastSection = document.querySelector('.weather-forecast');
 
 let weather = {
     apiKey: "2ceae9e5c180c2828ebe67712809e37c",
@@ -11,6 +12,8 @@ let weather = {
       fetchURL('GET', `${host}${path}?${queryString}`, '', (response) => {
         const data = JSON.parse(response);
         this.displayWeather(data);
+        weatherWeek.fetchWeekWeather();
+        weathForcastSection.style.display = 'grid';
       }, 
       this.displayRequestError);
     },
@@ -19,6 +22,8 @@ let weather = {
       const { icon, description } = data.weather[0];
       const { temp, humidity } = data.main;
       const { speed } = data.wind;
+      const {lat, lon} = data.coord;
+
       document.querySelector(".city").innerText = "Weather in " + name;
       document.querySelector(".icon").src = `https://openweathermap.org/img/wn/${icon}.png`;
       document.querySelector(".description").innerText = description;
@@ -26,7 +31,9 @@ let weather = {
       document.querySelector(".humidity").innerText = `Humidity: ${humidity}%`;
       document.querySelector(".wind").innerText = `Wind speed: ${speed} km/h`;
       weatherCardDiv.classList.remove("loading");
-      document.body.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${name}')`;
+      document.querySelector('.intro').backgroundImage = `url('https://source.unsplash.com/1600x900/?${name}')`;
+
+      weatherWeek.fetchWeekWeather(lon, lat);
     },
     search: function (location) {
       weatherCardDiv.classList.remove("error");
@@ -43,12 +50,14 @@ let weather = {
       weatherCardDiv.classList.remove("input-empty");
       weatherCardDiv.classList.remove("loading");
       weatherCardDiv.classList.add("error");
+      weathForcastSection.style.display = "none";
     },
 
     displayInputEmptyError: function(){
       weatherCardDiv.classList.remove("error");
       weatherCardDiv.classList.remove("loading");
       weatherCardDiv.classList.add("input-empty");
+      weathForcastSection.style.display = "none";
     }
   };
   

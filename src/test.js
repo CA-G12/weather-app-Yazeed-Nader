@@ -25,7 +25,7 @@ describe('Tests for server requests and responses', () => {
     test('Test when the request endpoint contains public and the file was  not found ', (done) => {
         supertest(router)
         .get('/public/home.html')
-        .expect(500)
+        .expect(404)
         .expect('Content-Type', 'text/html')
         .end((err) => {
             if(err) return done(err);
@@ -44,7 +44,7 @@ describe('Tests for server requests and responses', () => {
     });
     test('Test when the request is for location suggestions', (done) => {
         supertest(router)
-        .get('/locations')
+        .get('/location')
         .query('q=gaza')
         .expect(200)
         .expect('Content-Type', 'application/json')

@@ -1,196 +1,266 @@
 
 *{
-   box-sizing: border-box; 
+  box-sizing: border-box; 
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    background-color: #222;
-    font-family: "Open Sans", sans-serif;
-    background-size: cover;
-    background-image: url("https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cmFpbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
-    position: relative;
-  }
-  
-  body:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(128, 124, 124, 0.6);
-    z-index: -1;
-  }
-  
-  .card {
-    background-color: #000000ea;
-    padding: 2em;
-    border-radius: 30px;
-    width: 100%;
-    max-width: 420px;
-    margin: 1em;
-    color: white;
-    font-size: 120%;
-  }
-
-  div.search {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  button {
-    margin-left: 10px;
-    border-radius: 50%;
-    border: none;
-    height: 44px;
-    min-width: 44px;
-    outline: none;
-    background-color: #7c7c7c2b;
-    color: white;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-  }
-  
-  button:hover {
-    background-color: #7c7c7c6b;
-  }
-  /* search bar style  */ 
-  .search-bar {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 0.4em 0em;
-    border-radius: 24px;
-    color: white;
-    font-family: inherit;
-    background-color: #7c7c7c2b;
-    font-size: 105%;
-  }
-  
-  input::placeholder{
-    font-size: 18px;
-  }
-
-  h1.temp {
-    margin: 0;
-    margin-bottom: 0.4em;
-  }
-  
-  .description {
-    text-transform: uppercase;
-  }
-  
-  .flex {
-    display: flex;
-    align-items: center;
-  }
-  
-  .weather.loading,
-  .weather.error,
-  .weather.input-empty {
-    visibility: hidden;
-    max-height: 20px;
-    position: relative;
-  }
-  .weather.loading:after {
-    visibility: visible;
-    content: "Loading...";
-    color: white;
-    position: absolute;
-    top: 0;
-  }
-  .weather.error:after {
-    visibility: visible;
-    content: "Location not found, Please try again";
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    position: absolute;
-    top: 0;
-    text-align: center;
-    color: rgb(116, 6, 6);
-  }
-  .weather.input-empty:after {
-    visibility: visible;
-    content: "Please fill in the location...";
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    position: absolute;
-    top: 0;
-    text-align: center;
-    color: white;
-  }
+   margin: 0;
+   background-color: #222;
+   font-family: "Open Sans", sans-serif;
+   background-size: cover;
+   position: relative;
+ }
  
-  /* start  */
-
-  .autocomplete {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* input {
-    border: 1px solid transparent;
-    background-color: #f1f1f1;
-    padding: 10px;
-    font-size: 16px;
-  } */
-  
-  input[type=text] {
-    padding-left: 16px;
-    background-color: #161616;
-    width: 100%;
-    position: relative;
-    z-index: 200;
-    font-size: 18px;
-    padding: 12px 20px;
-  }
-  
-  input[type=submit] {
-    background-color: DodgerBlue;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .autocomplete-items {
-    position: absolute;
-    border: none;
-    z-index: 1;
-    /*position the autocomplete items to be the same width as the container:*/
-    top: 0;
-    left: 0;
-    right: 0;
-    padding-top: 48px;
-    background-color: rgb(26, 26, 26); 
-    border-radius: 10px;
-    overflow: hidden;
-
-  }
-
-  .autocomplete-items div {
-    padding: 12px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    /* background-color: rgb(26, 26, 26);  */
-  }
-  
-  /*when hovering an item:*/
-  .autocomplete-items div:hover,
-  .autocomplete-active {
-    background-color: rgb(65, 63, 63); 
-  }
-  
-  /*when navigating through the items using the arrow keys:*/
  
-  form{
+ 
+ .intro {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cmFpbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  position: relative;
+ }
+
+ intro:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(128, 124, 124, 0.6);
+  z-index: -1;
+}
+
+
+ .card {
+   background-color: #000000ea;
+   padding: 2em;
+   border-radius: 30px;
+   width: 420px;
+   max-width: calc(100% - 40px);
+   margin: 1em 0;
+   color: white;
+   font-size: 120%;
+ }
+
+ div.search {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   margin: 0 -10px;
+ }
+ 
+ button {
+   margin-left: 10px;
+   border-radius: 50%;
+   border: none;
+   height: 44px;
+   min-width: 44px;
+   outline: none;
+   background-color: #7c7c7c2b;
+   color: white;
+   cursor: pointer;
+   transition: 0.2s ease-in-out;
+ }
+ 
+ button:hover {
+   background-color: #7c7c7c6b;
+ }
+ /* search bar style  */ 
+ .search-bar {
+   flex: 1;
+   border: none;
+   outline: none;
+   padding: 0.4em 0em;
+   border-radius: 24px;
+   color: white;
+   font-family: inherit;
+   background-color: #7c7c7c2b;
+   font-size: 105%;
+   flex: 1;
+ }
+ 
+ input::placeholder{
+   font-size: 18px;
+ }
+
+ h1.temp {
+   margin: 0;
+   margin-bottom: 0.4em;
+   font-size: 30px;
+ }
+ 
+ .description {
+   text-transform: uppercase;
+ }
+ 
+ .flex {
+   display: flex;
+   align-items: center;
+ }
+ 
+ .weather.loading,
+ .weather.error,
+ .weather.input-empty {
+   visibility: hidden;
+   max-height: 20px;
+   position: relative;
+ }
+ .weather.loading:after {
+   visibility: visible;
+   content: "Loading...";
+   color: white;
+   position: absolute;
+   top: 0;
+ }
+ .weather.error:after {
+   visibility: visible;
+   content: "Location not found, Please try again";
+   color: white;
+   font-size: 16px;
+   font-weight: bold;
+   position: absolute;
+   top: 0;
+   text-align: center;
+   color: rgb(116, 6, 6);
+ }
+ .weather.input-empty:after {
+   visibility: visible;
+   content: "Please fill in the location...";
+   color: white;
+   font-size: 16px;
+   font-weight: bold;
+   position: absolute;
+   top: 0;
+   text-align: center;
+   color: white;
+ }
+
+ /* start  */
+
+ .autocomplete {
+   position: relative;
+   width: 100%;
+ }
+ /* input {
+   border: 1px solid transparent;
+   background-color: #f1f1f1;
+   padding: 10px;
+   font-size: 16px;
+ } */
+ 
+ input[type=text] {
+   padding-left: 16px;
+   background-color: #161616;
+   width: 100%;
+   position: relative;
+   z-index: 200;
+   font-size: 18px;
+   padding: 12px 20px;
+ }
+ 
+ input[type=submit] {
+   background-color: DodgerBlue;
+   color: #fff;
+   cursor: pointer;
+ }
+ 
+ .autocomplete-items {
+   position: absolute;
+   border: none;
+   z-index: 1;
+   /*position the autocomplete items to be the same width as the container:*/
+   top: 0;
+   left: 0;
+   right: 0;
+   padding-top: 48px;
+   background-color: rgb(26, 26, 26); 
+   border-radius: 10px;
+   overflow: hidden;
+
+ }
+
+ .autocomplete-items div {
+   padding: 12px 20px;
+   font-size: 16px;
+   cursor: pointer;
+   /* background-color: rgb(26, 26, 26);  */
+ }
+ 
+ /*when hovering an item:*/
+ .autocomplete-items div:hover,
+ .autocomplete-active {
+   background-color: rgb(65, 63, 63); 
+ }
+ 
+ /*when navigating through the items using the arrow keys:*/
+
+ form{
+   display: flex;
+   justify-content: center;
+   flex: 1;
+ }
+
+   /* Weather forcasts */
+   main {
+     width: 100%;
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   }
+
+   .weather-forecast{
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+     width: 100%;
+     background-color: #b8b3b3ea;
+     padding: 40px;
+     gap: 30px;
+   }
+
+   .weather-forecast-item {
+     background-color: #000000ea;
+     padding: 20px 30px;
+     color: white;
+     border-radius: 24px;
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 10px;
+   }
+
+   .weather-forecast-item.today {
+    background-color: purple;
+   }
+
+   .weather-forecast-item .w-icon {
+     width: 150px;
+   }
+   .date-flex {
     display: flex;
-    justify-content: center;
-    flex: 1;
-  }
+    justify-content: space-between;
+    width: 100%;
+   }
+
+   .weather-forecast-item.temp {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+   }
+
+   .weather-forecast-item.temp span.bold {
+    font-weight: bold;
+   }
+
+   .weather-forecast-item .description {
+    margin-top: -20px;
+    margin-bottom: 20px;
+   }
