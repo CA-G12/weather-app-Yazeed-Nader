@@ -1,19 +1,19 @@
 let myInput = document.querySelector("#myInput");
 
-myInput.onkeyup = function (){
-    console.log(myInput.value);
+myInput.addEventListener('input', function (){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
         let data = JSON.parse(xhttp.responseText);
         console.log(data);
-        }
+        countries = data.slice(0, 7);
+        autocomplete(document.getElementById("myInput"), countries);
+       }
     };
-    // `http://localhost:4000/location?q=${myInput.value}`
     xhttp.open("GET", `http://localhost:4000/location?q=${myInput.value}`);
     xhttp.send();
 
-}
+});
 
 
 
