@@ -8,7 +8,7 @@ const router = (request, response) => {
     else if(endpoint.includes('public')){
         indexHandlers.publicHandler(request, response);
     }
-    else if(endpoint.includes("/location") && request.method == "GET"){
+    else if(/\/location\/?\?q=\w*/.test(endpoint) && request.method == "GET"){
         indexHandlers.locationHandler(request, response);
     }
     else {

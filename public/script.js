@@ -39,7 +39,3 @@ let weather = {
     e.preventDefault();
   };
   weather.fetchWeather("gaza");
-
-
-
-     
