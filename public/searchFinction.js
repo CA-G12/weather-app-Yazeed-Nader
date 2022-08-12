@@ -10,7 +10,7 @@ myInput.onkeyup = function (){
         }
     };
     // `http://localhost:4000/location?q=${myInput.value}`
-    xhttp.open("GET", "../src/handlers/location-handler.js", myInput.value);
+    xhttp.open("GET", `http://localhost:4000/location?q=${myInput.value}`);
     xhttp.send();
 
 }

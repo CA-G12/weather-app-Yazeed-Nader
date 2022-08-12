@@ -11,4 +11,4 @@ const serverError500Handler = (request, response) => {
 }
 
 
-module.exports = {clientError404Handler, serverError500Handler};
+module.exports = { clientError404Handler, serverError500Handler };
