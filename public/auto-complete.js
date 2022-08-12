@@ -1,3 +1,6 @@
+// All rights reserved to W3schools.com
+// https://www.w3schools.com/howto/howto_js_autocomplete.asp
+
 function autocomplete(inp, arr) {
 
     let currentFocus;
@@ -22,12 +25,15 @@ function autocomplete(inp, arr) {
         b.innerHTML += arr[i].substr(val.length);
         b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
         b.addEventListener("click", function() {
-            inp.value = inp.getElementsByTagName("input")[0].value;
+            inp.value = this.querySelector('input').value;
+            weather.search(inp.value);
             closeAllLists();
         });
         a.appendChild(b);
       }
     }
+    inp.style.borderRadius = '10px';
+
     inp.addEventListener("keydown", function(e) {
         let x = document.getElementById(inp.id + "autocomplete-list");
         if (x) x = x.getElementsByTagName("div");
@@ -64,6 +70,7 @@ function autocomplete(inp, arr) {
           x[i].parentNode.removeChild(x[i]);
         }
       }
+      inp.style.borderRadius = '24px';
     }
     document.addEventListener("click", function (e) {
         closeAllLists(e.target);
