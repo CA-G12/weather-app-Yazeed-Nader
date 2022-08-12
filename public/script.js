@@ -1,9 +1,18 @@
+const weatherCardDiv = document.querySelector('.weather');
+const searchInput = document.querySelector('.search-bar');
+
 let weather = {
     apiKey: "2ceae9e5c180c2828ebe67712809e37c",
-    fetchWeather: function (city) {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.apiKey}&units=metric`)
-        .then((response) => response.json())
-        .then((data) => this.displayWeather(data));
+    fetchWeather: function(location){
+      const host = 'https://api.openweathermap.org';
+      const path = '/data/2.5/weather';
+      const queryString = `q=${location}&appid=${this.apiKey}&units=metric`;
+
+      fetchURL('GET', `${host}${path}?${queryString}`, '', (response) => {
+        const data = JSON.parse(response);
+        this.displayWeather(data);
+      }, 
+      this.displayRequestError);
     },
     displayWeather: function (data) {
       const { name } = data;
@@ -16,26 +25,44 @@ let weather = {
       document.querySelector(".temp").innerText = temp + "°C";
       document.querySelector(".humidity").innerText = `Humidity: ${humidity}%`;
       document.querySelector(".wind").innerText = `Wind speed: ${speed} km/h`;
-      document.querySelector(".weather").classList.remove("loading");
+      weatherCardDiv.classList.remove("loading");
       document.body.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${name}')`;
     },
-    search: function () {
-      document.querySelector(".weather").classList.add("loading");
-      this.fetchWeather(document.querySelector(".search-bar").value);
-      weather.api;
+    search: function (location) {
+      weatherCardDiv.classList.remove("error");
+      weatherCardDiv.classList.remove("input-empty");
+      weatherCardDiv.classList.add("loading");
+      if(location.trim() != ''){
+        this.fetchWeather(location);
+      }else {
+        this.displayInputEmptyError();
+      }
+      
     },
+    displayRequestError: function(status, statusText){
+      weatherCardDiv.classList.remove("input-empty");
+      weatherCardDiv.classList.remove("loading");
+      weatherCardDiv.classList.add("error");
+    },
+
+    displayInputEmptyError: function(){
+      weatherCardDiv.classList.remove("error");
+      weatherCardDiv.classList.remove("loading");
+      weatherCardDiv.classList.add("input-empty");
+    }
   };
   
   document.querySelector(".search button").addEventListener("click", () => {
-    weather.search();
+    weather.search(searchInput.value);
   });
   
   document.querySelector(".search-bar").addEventListener("keyup", (event) => {
     if (event.key == "Enter") {
-      weather.search();
+      weather.search(searchInput.value);
     }
   });
   document.forms[0].onsubmit = (e) => {
     e.preventDefault();
   };
-  weather.fetchWeather("gaza");
+
+  weather.search("gaza");

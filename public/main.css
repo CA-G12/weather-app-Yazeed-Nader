@@ -74,6 +74,10 @@ body {
     font-size: 105%;
   }
   
+  input::placeholder{
+    font-size: 18px;
+  }
+
   h1.temp {
     margin: 0;
     margin-bottom: 0.4em;
@@ -88,7 +92,9 @@ body {
     align-items: center;
   }
   
-  .weather.loading {
+  .weather.loading,
+  .weather.error,
+  .weather.input-empty {
     visibility: hidden;
     max-height: 20px;
     position: relative;
@@ -100,6 +106,29 @@ body {
     position: absolute;
     top: 0;
   }
+  .weather.error:after {
+    visibility: visible;
+    content: "Location not found, Please try again";
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    color: rgb(116, 6, 6);
+  }
+  .weather.input-empty:after {
+    visibility: visible;
+    content: "Please fill in the location...";
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    color: white;
+  }
+ 
   /* start  */
 
   .autocomplete {
@@ -138,9 +167,9 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    padding-top: 44px;
+    padding-top: 48px;
     background-color: rgb(26, 26, 26); 
-    border-radius: 24px;
+    border-radius: 10px;
     overflow: hidden;
 
   }
@@ -153,15 +182,13 @@ body {
   }
   
   /*when hovering an item:*/
-  .autocomplete-items div:hover {
+  .autocomplete-items div:hover,
+  .autocomplete-active {
     background-color: rgb(65, 63, 63); 
   }
   
   /*when navigating through the items using the arrow keys:*/
-  .autocomplete-active {
-    background-color: DodgerBlue !important; 
-    color: #ffffff; 
-  }
+ 
   form{
     display: flex;
     justify-content: center;
