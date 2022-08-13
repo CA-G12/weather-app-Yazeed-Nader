@@ -208,7 +208,7 @@ body {
  }
  .headerWeatherSection{
   width: 100%;
-  height: 50px;
+  height: 70px;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -217,7 +217,7 @@ body {
 .divHeaderWeatherSection h2{
    margin: 9px;
   color: #fff;
-  font-size: 25px;
+  font-size: 35px;
  }
 
    /* Weather forcasts */
@@ -256,8 +256,9 @@ body {
       box-shadow: 2px 4px 25px rgb(255, 255, 255);
     }
     .weather-forecast-item.today {
-      background-color: purple;
-      box-shadow: 2px 4px 25px rgb(206, 1, 206);
+      background-color: rgb(145, 145, 145);
+      box-shadow: 2px 4px 25px rgb(104, 104, 104);
+      color: #161616;
    }
 
    .weather-forecast-item .w-icon {
@@ -282,6 +283,19 @@ body {
    .weather-forecast-item .description {
     margin-top: -20px;
     margin-bottom: 20px;
+   }
+   /* map section */
+   .mapSection{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+    height: 600px;
+    margin: 50px;
+   }
+   #imgMap{ 
+    align-items: center;
+    box-shadow: 2px 4px 25px rgb(255, 255, 255);
    }
 /* footer */
 
