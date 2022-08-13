@@ -28,7 +28,7 @@
                 placeholder="Country" />
             </div>
           </form>
-          <button>
+          <button id = "searchAbout">
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
               height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -94,6 +94,17 @@
       </div> -->
 
     </section>
+    <section class="headerWeatherSection">
+      <div class="divHeaderWeatherSection">
+        <h2>Map</h2>
+      </div>
+    </section>
+    <section class="mapSection">
+      <img id = "imgMap" src="https://maps.googleapis.com/maps/api/staticmap?center=gaza&zoom=10&size=2000x2000&key=AIzaSyDeEc3PmHZCgGZC2bnTqf1Ohr38KFtu82U" />
+      <!-- <iframe id = "mapLinkName"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217929.01291235475!2d34.3886928!3d31.410245850000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14fd844104b258a9%3A0xfddcb14b194be8e7!2sGaza%20Strip!5e0!3m2!1sen!2s!4v1660389566477!5m2!1sen!2s" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+      <!-- <iframe id = "mapLinkName" src="" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+ 
+    </section>
     <footer class="footer" role="contentinfo"> 
       <div class="logo">
         <H1>Weather Home</H1>
@@ -109,6 +120,7 @@
   <script src="../public/auto-complete.js"></script>
   <script src="../public/weather-week.js" defer></script>
   <script src="../public/weather-search.js" defer></script>
+  <script src = "../public/mapfetch.js"></script>
 
 </body>
 
